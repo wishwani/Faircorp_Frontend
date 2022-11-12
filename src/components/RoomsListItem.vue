@@ -3,7 +3,7 @@
     <div class="card-header">
       <h2 class="mb-0">
         <button
-          class="btn btn-link btn-block text-left d-flex flex-column flex-sm-row"
+          class="btn btn-block text-left d-flex flex-column flex-sm-row"
           type="button"
           @click="toggleExpand"
         >
@@ -53,7 +53,7 @@
             Target Temperature : {{ room.targetTemperature }}
           </div>
         </div>
-        <div class="details d-flex">
+        <div class="details d-flex justify-content-center">
           <button
             type="button"
             class="btn btn-secondary me-2 mr-3"
@@ -69,7 +69,7 @@
             Switch Heaters
           </button>
           <button type="button" class="btn btn-danger me-2" @click="deleteRoom">
-            Delete room
+            Delete Room
           </button>
         </div>
         <div class="windows-list mt-4">
@@ -111,7 +111,6 @@ export default {
     async deleteRoom() {
       let response = await axios.delete(
         `${API_HOST}/api/rooms/${this.room.id}`
-         
       );
       this.$emit("room-deleted", this.room.id);
     },
@@ -119,6 +118,8 @@ export default {
       let response = await axios.put(
         `${API_HOST}/api/rooms/${this.room.id}/switchWindow`
       );
+    console.log(this.room.name);
+    debugger;
       this.$emit("room-updated", response.data);
     },
     async switchHeaters() {

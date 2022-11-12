@@ -54,5 +54,4 @@ export default {
   color: #000208;
   margin-top: 10px;
 }
-
 </style>

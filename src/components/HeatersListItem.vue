@@ -3,7 +3,7 @@
     <div class="card-header">
       <h2 class="mb-0">
         <button
-          class="btn btn-link btn-block text-left d-flex flex-column flex-sm-row"
+          class="btn btn-block text-left d-flex flex-column flex-sm-row"
           type="button"
           @click="toggleExpand"
         >
