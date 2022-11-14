@@ -143,5 +143,6 @@ export default {
   .top-row {
     cursor: pointer;
   }
+  
 }
 </style>

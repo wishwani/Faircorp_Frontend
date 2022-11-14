@@ -45,15 +45,15 @@ export default {
     deleteRoom(roomId) {
       let index = this.rooms.findIndex(room => room.id === roomId);
       if (index > -1) {
-	this.rooms.splice(index, 1);
+	      this.rooms.splice(index, 1);
       }
     },
-      addRoom(newRoom) {
-	  this.rooms.push(newRoom);
-      },
-      updateRoom(newRoom) {
-	  let index = this.rooms.findIndex(room => room.id === newRoom.id);
-	  this.rooms.splice(index, 1, newRoom);
+    addRoom(newRoom) {
+      this.rooms.push(newRoom);
+    },
+    updateRoom(newRoom) {
+      let index = this.rooms.findIndex(room => room.id === newRoom.id);
+      this.rooms.splice(index, 1, newRoom);
 	  }
   }
 }
