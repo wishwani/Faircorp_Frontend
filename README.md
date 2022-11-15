@@ -28,5 +28,6 @@ Note: We have uploaded screenshots of all interfaces in the screenshot folder
 
 **Run Application**
 
-* Use the command 'npm run serve'
+* Clone the repository from github
+* Use the command 'npm run serve' in the terminal
 * Application is running in the 'http://localhost:8080/'
