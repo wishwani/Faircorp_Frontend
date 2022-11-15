@@ -2,8 +2,8 @@
 
 > Group members - Shreyas HARINATH, Soumya KUMBAR, Randika Wishwani RATHWATHTHAGE
 
-Backend is deployed in clever cloud 
-app-c51ff4f0-bfb2-4257-9dbe-98d96e53ab26.cleverapps.io
+Backend is hosted in clever cloud, [faircorpBackendforFrontend](https://app-c51ff4f0-bfb2-4257-9dbe-98d96e53ab26.cleverapps.io)
+
 
 **Functionalities**
 * Setup the navigation menu for Rooms, Windows, Heaters.
