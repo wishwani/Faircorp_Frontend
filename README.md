@@ -23,3 +23,10 @@ Backend is hosted in clever cloud, [faircorpBackendforFrontend](https://app-c51f
 * Implement the functionality of the "On Heater and Off Heater" button
 * Implement the creation of new Heater
 
+Note: We have uploaded screenshots of all interfaces in the screenshot folder
+
+
+**Run Application**
+
+* Use the command 'npm run serve'
+* Application is running in the 'http://localhost:8080/'
