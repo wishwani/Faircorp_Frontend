@@ -3,12 +3,12 @@
     <div class="card-header">
       <h2 class="mb-0">
         <button
-          class="btn btn-link btn-block text-left d-flex"
+          class="btn btn-block text-left d-flex"
           type="button"
           @click="toggleExpand"
         >
-          <div class="mr-2">Create New Heater</div>
-          <div class="expand-button ml-auto ">
+          <div class="mr-2 text-primary">Create New Heater</div>
+          <div class="expand-button ml-auto text-primary">
             {{ isExpanded ? "&#9660;" : "&#9658;" }}
           </div>
         </button>
@@ -17,53 +17,60 @@
 
     <template class="collapse show" v-if="isExpanded">
       <form class="p-4">
-        <div class="form-group">
-          <label for="heater_name">Heater Name: </label>
-          <input
-            v-model="heater_name"
-            type="text"
-            class="form-control"
-            name="heater_name"
-            id="heater_name"
-            placeholder="heater"
-          />
+        <div class="form-group row">
+          <label for="heater_name" class="col-sm-4 col-form-label">Heater Name: </label>
+          <div class="col-sm-8">
+            <input
+              v-model="heater_name"
+              type="text"
+              class="form-control"
+              name="heater_name"
+              id="heater_name"
+              placeholder="Main Heater"
+            />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="heater_power">Heater Power: </label>
-          <input
-            v-model="heater_power"
-            type="text"
-            class="form-control"
-            name="heater_power"
-            id="heater_power"
-            placeholder="power"
-          />
+        <div class="form-group row">
+          <label for="heater_power" class="col-sm-4 col-form-label">Heater Power: </label>
+          <div class="col-sm-8">
+            <input
+              v-model="heater_power"
+              type="text"
+              class="form-control"
+              name="heater_power"
+              id="heater_power"
+              placeholder="2000"
+            />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="heater_status">Heater Status: </label>
-          <select
-            v-model="heater_status"
-            class="form-control"
-            id="heater_status"
-            name="heater_status"
-          >
-            <option value="OFF">OFF</option>
-            <option value="ON">ON</option>
-          </select>
+        <div class="form-group row">
+          <label for="heater_status" class="col-sm-4 col-form-label">Heater Status: </label>
+          <div class="col-sm-8">
+            <select
+              v-model="heater_status"
+              class="form-control"
+              id="heater_status"
+              name="heater_status"
+            >
+              <option value="OFF">OFF</option>
+              <option value="ON">ON</option>
+            </select>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="heater_room">Heater Room: </label>
-          <select
-          v-model="heater_room"
-            class="form-control"
-            
-            id="heater_room"
-            name="heater_room"
-          >
-            <option v-for="room in rooms" v-bind:value="room">
-              {{ room.name }}
-            </option>
-          </select>
+        <div class="form-group row">
+          <label for="heater_room" class="col-sm-4 col-form-label">Heater Room: </label>
+          <div class="col-sm-8">
+            <select
+              v-model="heater_room"
+              class="form-control"
+              id="heater_room"
+              name="heater_room"
+            >
+              <option v-for="room in rooms" v-bind:value="room">
+                {{ room.name }}
+              </option>
+            </select>
+          </div>
         </div>
         <button type="button" class="btn btn-primary" @click="addHeater">
           Create Heater

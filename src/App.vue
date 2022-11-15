@@ -28,7 +28,7 @@ export default {
   data: function() {
     return {
       title: 'Building Management System',
-      currentNavItem: 'windows'
+      currentNavItem: 'rooms'
     }
   },
     methods: {

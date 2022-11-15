@@ -43,6 +43,13 @@
     >
       <div class="card-body" >
         <div class="details d-flex">
+          <button
+            type="button"
+            class="btn btn-secondary me-2 mr-3"
+            @click="switchHeater"
+          >
+            {{ isHeaterOn ? "Off" : "On" }} heater
+          </button>
           <button type="button" class="btn btn-danger" @click="deleteHeater">
             Delete heater
           </button>
@@ -73,6 +80,11 @@ export default {
   methods: {
     toggleExpand() {
       this.isExpanded = !this.isExpanded;
+    },
+    async switchHeater() {
+      let response = await axios.put(`${API_HOST}/api/heaters/${this.heater.id}/switch`);
+      let updatedHeater = response.data;
+      this.$emit('heater-updated', updatedHeater);
     },
     async deleteHeater() {
       let response = await axios.delete(

@@ -3,12 +3,12 @@
     <div class="card-header">
       <h2 class="mb-0">
         <button
-          class="btn btn-link btn-block text-left d-flex"
+          class="btn btn-block text-left d-flex"
           type="button"
           @click="toggleExpand"
         >
-          <div class="mr-2">Create New Room</div>
-          <div class="expand-button ml-auto">
+          <div class="mr-2 text-primary">Create New Room</div>
+          <div class="expand-button ml-auto text-primary">
             {{ isExpanded ? "&#9660;" : "&#9658;" }}
           </div>
         </button>
@@ -17,63 +17,70 @@
 
     <template class="collapse show" v-if="isExpanded">
       <form class="p-4">
-        <div class="form-group">
-          <label for="room_name">Room Name: </label>
-          <input
-            class="form-control"
-                v-model="room_name"
-                type="text"
-                id="room_name"
-                name="room_name"
-            placeholder="room"
-          />
+        <div class="form-group row">
+          <label for="room_name" class="col-sm-4 col-form-label">Room Name: </label>
+          <div class="col-sm-8">
+            <input
+              class="form-control"
+              v-model="room_name"
+              type="text"
+              id="room_name"
+              name="room_name"
+              placeholder="Hall"
+            />
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="room_building">Room building: </label>
-          <select
-            class="form-control"
-                v-model="room_building"
-                id="room_building"
-                name="room_building"
-          >
-                <option v-for="building in buildings" v-bind:value="building">
-                  {{ building.name }}
-                </option>
-          </select>
+        <div class="form-group row">
+          <label for="room_building" class="col-sm-4 col-form-label">Room building:</label>
+          <div class="col-sm-8">
+            <select
+              class="form-control"
+              v-model="room_building"
+              id="room_building"
+              name="room_building"
+            >
+              <option v-for="building in buildings" v-bind:value="building">
+                {{ building.name }}
+              </option>
+            </select>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="room_current_temperature">Room Current Temperature:
-              </label>
-          <input
-            class="form-control"
-                type="number"
-                v-model="room_current_temperature"
-                id="room_current_temperature"
-                name="room_current_temperature"
-          />
+        <div class="form-group row">
+          <label for="room_current_temperature" class="col-sm-4 col-form-label">Room Current Temperature:</label>
+          <div class="col-sm-8">
+            <input
+              class="form-control"
+              type="number"
+              v-model="room_current_temperature"
+              id="room_current_temperature"
+              name="room_current_temperature"
+            />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="room_target_temperature"
-                >Room Target Temperature:
-              </label>
-          <input
-            class="form-control"
-                type="number"
-                v-model="room_target_temperature"
-                id="room_target_temperature"
-                name="room_target_temperature"
-          />
+        <div class="form-group row">
+          <label for="room_target_temperature" class="col-sm-4 col-form-label">Room Target Temperature:</label>
+          <div class="col-sm-8">
+            <input
+              class="form-control"
+              type="number"
+              v-model="room_target_temperature"
+              id="room_target_temperature"
+              name="room_target_temperature"
+            />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="room_floor">Room Floor: </label>
-          <input
-            class="form-control"
-                type="number"
-                v-model="room_floor"
-                id="room_floor"
-                name="room_floor"
-          />
+        <div class="form-group row">
+          <label for="room_floor" class="col-sm-4 col-form-label">Room Floor: </label>
+          <div class="col-sm-8">
+            <input
+              class="form-control"
+              type="number"
+              v-model="room_floor"
+              id="room_floor"
+              name="room_floor"
+            />
+          </div>
         </div>
         <button type="button" class="btn btn-primary" @click="addRoom">
           Create Room

@@ -29,7 +29,7 @@ export default {
   props: ['title'],
   data: function() {
     return {
-      currentNavItem: 'windows'
+      currentNavItem: 'rooms'
     }
   },
   methods: {

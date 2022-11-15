@@ -83,6 +83,17 @@
           >
           </windows-list-item>
         </div>
+        <div class="heaters-list mt-4">
+          <heaters-list-item
+            v-for="heater in room.heaterList"
+            :heater="heater"
+            :key="heater.id"
+            :room="room"
+            @heater-updated="updateHeater"
+            @heater-deleted="deleteHeater"
+          >
+          </heaters-list-item>
+        </div>
       </div>
     </template>
   </div>
@@ -92,10 +103,12 @@
 import axios from "axios";
 import { API_HOST } from "../config";
 import WindowsListItem from "./WindowsListItem";
+import HeatersListItem from "./HeatersListItem.vue";
 
 export default {
   components: {
     WindowsListItem,
+    HeatersListItem
   },
   name: "RoomsListItem",
   props: ["room"],
@@ -118,8 +131,6 @@ export default {
       let response = await axios.put(
         `${API_HOST}/api/rooms/${this.room.id}/switchWindow`
       );
-    console.log(this.room.name);
-    debugger;
       this.$emit("room-updated", response.data);
     },
     async switchHeaters() {
@@ -129,7 +140,6 @@ export default {
       this.$emit("room-updated", response.data);
     },
     updateWindow(newWindow) {
-      /* Find the place of window object with the same Id in the array, and replace it */
       let index = this.room.windowList.findIndex(
         (window) => window.id === newWindow.id
       );
@@ -141,6 +151,20 @@ export default {
       );
       if (index > -1) {
         this.room.windowList.splice(index, 1);
+      }
+    },
+    updateHeater(newHeater) {
+      let index = this.room.heaterList.findIndex(
+        (heater) => heater.id === newHeater.id
+      );
+      this.room.heaterList.splice(index, 1, newHeater);
+    },
+    deleteHeater(heaterId) {
+      let index = this.room.heaterList.findIndex(
+        (heater) => heater.id === heaterId
+      );
+      if (index > -1) {
+        this.room.heaterList.splice(index, 1);
       }
     },
   },

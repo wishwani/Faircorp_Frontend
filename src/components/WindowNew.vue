@@ -3,12 +3,12 @@
     <div class="card-header">
       <h2 class="mb-0">
         <button
-          class="btn btn-link btn-block text-left d-flex"
+          class="btn btn-block text-left d-flex"
           type="button"
           @click="toggleExpand"
         >
-          <div class="mr-2">Create New Window</div>
-          <div class="expand-button ml-auto ">
+          <div class="mr-2 text-primary">Create New Window</div>
+          <div class="expand-button ml-auto text-primary">
             {{ isExpanded ? "&#9660;" : "&#9658;" }}
           </div>
         </button>
@@ -17,41 +17,47 @@
 
     <template class="collapse show" v-if="isExpanded">
       <form class="p-4">
-        <div class="form-group">
-          <label for="window_name">Window Name: </label>
-          <input
-            v-model="window_name"
-            type="text"
-            class="form-control"
-            name="window_name"
-            id="window_name"
-            placeholder="window"
-          />
+        <div class="form-group row">
+          <label for="window_name" class="col-sm-4 col-form-label">Window Name:</label>
+          <div class="col-sm-8">
+            <input
+              v-model="window_name"
+              type="text"
+              class="form-control"
+              name="window_name"
+              id="window_name"
+              placeholder="Kitchen Window"
+            />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="window_status">Window Status: </label>
-          <select
-            v-model="window_status"
-            class="form-control"
-            id="window_status"
-            name="window_status"
-          >
-            <option value="CLOSED">Closed</option>
-            <option value="OPEN">Open</option>
-          </select>
+        <div class="form-group row">
+          <label for="window_status" class="col-sm-4 col-form-label">Window Status:</label>
+          <div class="col-sm-8">
+            <select
+              v-model="window_status"
+              class="form-control"
+              id="window_status"
+              name="window_status"
+            >
+              <option value="CLOSED">Closed</option>
+              <option value="OPEN">Open</option>
+            </select>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="window_room">Window Room: </label>
-          <select
-            v-model="window_room"
-            class="form-control"
-            id="window_room"
-            name="window_room"
-          >
-            <option v-for="room in rooms" v-bind:value="room">
-              {{ room.name }}
-            </option>
-          </select>
+        <div class="form-group row">
+          <label for="window_room" class="col-sm-4 col-form-label">Window Room: </label>
+          <div class="col-sm-8">
+            <select
+              v-model="window_room"
+              class="form-control"
+              id="window_room"
+              name="window_room"
+            >
+              <option v-for="room in rooms" v-bind:value="room">
+                {{ room.name }}
+              </option>
+            </select>
+          </div>
         </div>
         <button type="button" class="btn btn-primary" @click="addWindow">
           Create Window
